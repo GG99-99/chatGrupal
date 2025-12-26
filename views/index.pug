@@ -1,0 +1,105 @@
+extends layout
+
+mixin text(txt)
+    div texto
+    
+    
+mixin message(msg)
+    div.msg-box.card( data-id= msg.id , data-ses=msg.ses)
+        div.msg-title= msg.title
+        div.msg-body= msg.message
+        div.select-btn
+            div.inner
+        
+block linkCss
+    link(rel='stylesheet', href='/style/format.css' )
+    link(rel='stylesheet', href='/style/index/toolbox.css' )
+    
+    link(rel='stylesheet', href='/style/index/screen.css' )
+    
+    
+    link(rel='stylesheet', href='/style/index/messages.css' )
+    link(rel='stylesheet', href='/style/index/getInfoBox.css' )
+    link(rel='stylesheet', href='/style/index/downInfo/downInfo.css' )
+
+
+    
+
+block content
+    
+    div.msg-container
+        each msg in messages
+            +message(msg)
+    
+    
+    
+    div
+        div.toolbox()
+            div.write
+                img.icon(src="/images/file-edit.svg")
+            div.clear
+                img.icon(src="/images/eraser.svg")
+                
+            div.sub-toolbox
+                div.up-ses
+                    img.icon(src="/images/plus.svg")
+                div.ses-num(data-ses= ses)= ses
+                
+                div.down-ses
+                    img.icon(src="/images/minus.svg")
+        
+    
+    div.screen
+
+        div.insert-box
+            input(type='text' name='title' placeholder='titulo' id="msg-title")
+            div.textarea(contenteditable=true data-placeholder='Escribe tu mensaje' id="msg-body")
+            div.btn-section
+                div.btn(id="submitMsg") Enviar
+    
+    div.screen
+        div.alert-box
+            div.alert-msg
+    
+    div.screen.select
+        div.btn-select-all Selecionar todo
+    
+        div(id="send-trash")
+            img.icon(src="/images/trash.svg")
+            
+    
+        
+        
+        
+    div.screen.getKey(data-accion="")
+        div.card.getInfo-box
+            p Ingresa la master-key para proceder
+            div.input-wrapper
+                input(type='text' name='masterKey' placeholder='Ingresa' id="masterKey")
+                p Clave Incorrecta
+            div( class="btn"  id="submitMasterKey") Enviar
+            
+            
+    div.screen.getSes
+        div.card.getInfo-box
+            p A que sesion quieres ir
+            input(type='text' placeholder='Ingresa' id="inputSes")
+            div( class="btn"  id="submitNewSes") Enviar
+    
+    div.selected-count.down-info Han sido seleccionados 
+                span 0
+                p  elementos
+    
+    div.warn-event.down-info 
+        span
+            
+
+block script
+    script(type="module" src="/js/index/ioEvents.js")
+    script(type="module" src="/js/index/getMasterKey.js")
+    script(type="module" src="/js/index/writeMsg.js")
+    script(type="module" src="/js/index/selectMsg.js")
+    script(type="module" src="/js/index/trashMsg.js")
+    script(type="module" src="/js/index/upSes.js")
+
+            

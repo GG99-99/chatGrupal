@@ -1,0 +1,48 @@
+
+.getInfo-box{
+    width: max-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.getInfo-box *{
+    font-size: 2vh;
+}
+
+.getInfo-box p{
+     padding: 0.5vh;
+}
+
+
+
+/* input wraper */
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.getInfo-box input {
+    border-radius: 0.8vh;
+    padding: 1vh;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) 
+}
+
+.input-wrapper p{
+    
+    color: red;
+    opacity: 0;
+}
+
+
+
+/* btn submit */
+.getInfo-box .btn{
+    width: max-content;
+    border-radius: 0.8vh;
+    padding: 1vh 3.5vh 1vh 3.5vh;
+    
+    align-self: center;
+    background-color: white;
+}

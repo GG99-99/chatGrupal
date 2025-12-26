@@ -1,0 +1,16 @@
+@import "screens/screenAlert.css";
+@import "screens/screenGetKey.css";
+@import "screens/screenInsert.css";
+@import "screens/screenSelect.css";
+@import "screens/screenGetSes.css";
+
+.screen{
+    display: none;
+    z-index: 1000;
+    top: 0;
+
+}
+
+
+/* Information pop msg */
+

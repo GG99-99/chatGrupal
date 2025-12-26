@@ -1,0 +1,17 @@
+.screen:has(.alert-box){
+    
+    z-index: 2000;
+    align-items: center;
+    
+}
+
+.alert-box{
+    background-color: white;
+    border-radius: 15px;
+    padding: 2vh;
+    width: auto;
+    font-size: 2vh;
+    text-align: center;
+    box-shadow: var(--box-shadow-var);
+    
+}

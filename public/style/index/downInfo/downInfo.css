@@ -1,0 +1,36 @@
+
+.down-info{
+    background-color: white;
+    border-radius: 0.9vh;
+    padding: 1vh;
+    font-size: 2vh;
+    width: 35vh;
+    height: fit-content;
+    position: fixed;
+    top: 2vh;
+    
+    left: 50%;
+    transform: translateX(-50%) translateY(-200px);
+    
+   
+    z-index: 1000;
+    
+    
+    box-shadow: var(--box-shadow-var);
+    transition: transform 0.4s ease;
+}
+
+
+
+
+
+.down-info p{
+    display: inline;
+    
+}
+
+
+.down{
+    transform: translateX(-50%) translateY(0px);
+    transition: transform 0.4s ease; 
+}

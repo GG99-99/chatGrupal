@@ -1,0 +1,74 @@
+.msg-container{
+    margin-top: 7vh;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    /*align-items: center;*/
+    
+    padding: 5%;
+    gap: 3vh;
+    
+}
+
+.card{
+    padding: 1.5vh;
+    border-radius: 1vh;
+    box-shadow: var( --box-shadow-var);
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    
+    background-color: white;
+    
+}
+
+.msg-box{
+    position: relative;
+    width: 65vw;
+    z-index: 200;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: 150ms ease;
+}
+
+.show{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+
+.msg-title{
+    font-size: 2.1vh;
+    font-weight: bold;
+}
+
+.msg-body{
+    font-size: 2vh;
+    white-space: pre-wrap;
+}
+
+.msg-body, .msg-title{
+    width: 97%;
+}
+
+/*When a msg will be selected*/
+.card.selected .select-btn{
+    padding: 2px;
+    border-color: #0077b6;
+    position: absolute;
+}
+
+.card.selected .select-btn::before{
+    content: " ";
+    background-color: #0077b6;
+    border-radius: 100%;
+    width: 85%;
+    height: 85%;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

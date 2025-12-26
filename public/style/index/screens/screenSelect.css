@@ -1,0 +1,68 @@
+.screen.select{
+    background-color: white;
+    
+    
+    height: 100dvh;
+    width: 100vw;
+    top: 0;
+    z-index: 0;
+    backdrop-filter: unset;
+}
+
+.close-btn{
+    position: sticky;
+    top: 2vh;
+    right: 2vh;
+}
+
+
+
+
+#send-trash{
+    height: 7vh;
+    width: 7vh;
+    position: absolute;
+    bottom: 5vh;
+    right: 3vh;
+}
+
+.btn-select-all{
+    top: 10vh;
+    right: 3vh;
+    position: absolute;
+    width: 12vh;
+    height: auto;
+    padding: 1vh;
+    font-size: 2vh;
+    
+    border-radius: 1.5vh;
+    box-shadow: var(--box-shadow-var);
+    
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+
+/* from select mode */
+
+.select-btn{
+    display: none;
+    position: absolute;
+    right: 2vh;
+    height: 3vh;
+    width: 3vh;
+    border-radius: 30vh;
+    border: solid #747474 2px;
+    cursor: pointer;
+}
+
+
+.active{
+    display: block;
+}
+
+.selectMode{
+   background-color: gray; 
+}

@@ -1,0 +1,37 @@
+:root{
+    --box-shadow-var : rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    --screen-backcolor : #292828ad;
+    --shadow-in-dark: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+*, body{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    
+    font-family: "Arial", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 300;
+      font-style: normal;
+}
+
+
+.screen{
+    width: 100vw;
+    min-height: 100dvh;
+    display: none;
+    
+    justify-content: center;
+    padding: 5%;
+    position: fixed;
+    /*background-color: #00000075;*/
+    backdrop-filter: blur(7px);
+}
+
+input{
+    border: none;
+}
+input:focus {
+  outline: none;
+  
+}

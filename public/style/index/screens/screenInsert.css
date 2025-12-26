@@ -1,0 +1,74 @@
+
+
+.screen:has(.insert-box){
+    backdrop-filter: blur(10px);
+    height: 100vh;
+    overflow: scroll;
+    align-items: center;
+}
+
+.insert-box{
+    border-radius: 15px;
+    width: 65vw;
+    height: max-content;
+    padding: 10px;
+    /*background-color: transparent;*/
+    
+    display: grid;
+    grid-template-rows: auto 0.86fr auto;
+    /*backdrop-filter: blur(110px);*/
+    color: black;
+    background-color: white;
+    
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    min-height: 56vh;
+}
+
+.insert-box>input{
+    width: 100%;
+    padding: 1vh;
+    font-size: 4vh;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    
+}
+
+.insert-box>input::placeholder{
+    color: #726f6f;
+}
+
+.textarea{
+    padding: 1.3vh;
+    margin-top: 5%;
+    outline: none;
+    font-size: 2.5vh;
+    color: #5d5d5d;
+}
+
+.textarea:empty::before{
+    content: attr(data-placeholder);
+      color: #726f6f;
+      pointer-events: none;  
+}
+
+.textarea:focus::before {
+  content: ''; 
+}
+
+.btn-section{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn{
+    width: 24vh;
+    text-align: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    font-size: 3vh;
+    border-radius: 1vh;
+    padding: 16px;
+    cursor: pointer;
+}
