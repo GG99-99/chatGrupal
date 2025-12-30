@@ -45,7 +45,7 @@ const selectById = db.prepare("SELECT * FROM message WHERE id = ?");
    }
    
    static getMessages(){
-     return selectAll.all()
+     return selectAll.all().reverse()
      
    }
    

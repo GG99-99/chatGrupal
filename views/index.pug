@@ -15,9 +15,7 @@ block linkCss
     link(rel='stylesheet', href='/style/format.css' )
     link(rel='stylesheet', href='/style/index/toolbox.css' )
     
-    link(rel='stylesheet', href='/style/index/screen.css' )
-    
-    
+    link(rel='stylesheet', href='/style/index/screen.css' ) 
     link(rel='stylesheet', href='/style/index/messages.css' )
     link(rel='stylesheet', href='/style/index/getInfoBox.css' )
     link(rel='stylesheet', href='/style/index/downInfo/downInfo.css' )
@@ -35,6 +33,9 @@ block content
     
     div
         div.toolbox()
+            div.down-arrow
+                img.icon(src="/images/x.svg")
+            
             div.write
                 img.icon(src="/images/file-edit.svg")
             div.clear
@@ -95,6 +96,7 @@ block content
             
 
 block script
+    script(type="module" src="/js/index/index.js")
     script(type="module" src="/js/index/ioEvents.js")
     script(type="module" src="/js/index/getMasterKey.js")
     script(type="module" src="/js/index/writeMsg.js")

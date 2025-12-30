@@ -1,5 +1,6 @@
 import { selectBtnFunc } from "./selectMode.js";
-import { observer } from "../index/manageMsg.js";
+import { observer, observeLastMsg } from "../index/manageMsg.js";
+import { msgMouse  } from "../index/manageMsg.js";
 
 export function createMsg(msg){
   let msgBox = elm('div')
@@ -32,8 +33,12 @@ export function createMsg(msg){
   msgBox.appendChild(msgBody)
   msgBox.appendChild(delBtn)
   
+  msgBox.addEventListener("mousedown", msgMouse.down)
+  msgBox.addEventListener("mouseup", msgMouse.up)
+  msgBox.addEventListener("mouseleave", msgMouse.leave)
+  
   observer.observe(msgBox)
-  document.querySelector('.msg-container').appendChild(msgBox)
+  document.querySelector('.msg-container').prepend(msgBox)
   
   
   return msgBox
@@ -47,4 +52,5 @@ export function createManyMsg(msgs){
   for(let msg of msgs){
     createMsg(msg)
   }
+  
 }

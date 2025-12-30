@@ -51,10 +51,10 @@ div:has(.toolbox){
 
 
 
-/* ICONS */
-.write, .clear, #send-trash, .up-ses, .down-ses{
+
+.icon{
+    height: 6vh;
     padding: 1vh;
-    /*border: 1px solid;*/
     border-radius: 1.5vh;
     box-shadow: var(--box-shadow-var);
     display: flex;
@@ -64,9 +64,14 @@ div:has(.toolbox){
     background-color: white;
 }
 
-
-.icon{
-    height: 5vh;
+.down-arrow{
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
+    transform: rotate(90deg);
+}
+.down-arrow .icon{
+    box-shadow: unset;
 }
 
 

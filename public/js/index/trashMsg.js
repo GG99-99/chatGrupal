@@ -11,7 +11,6 @@ let btnErase = document.querySelector(".clear")
 btnErase.addEventListener('click', e => { 
   
   openSelectMode()
-  hideControls()
 })
 
 

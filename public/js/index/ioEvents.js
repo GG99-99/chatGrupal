@@ -1,6 +1,6 @@
 import { io } from '../cdn/socket.io.esm.min.js';
 import { createMsg, createManyMsg } from '../util/createMsg.js';
-import { removeMsg, removeAllMsg, warnEvent } from './manageMsg.js'
+import { removeMsg, removeAllMsg, warnEvent, observeLastMsg } from './manageMsg.js'
 import { replaceSes, getSes } from './upSes.js';
 
 let socket = io();
@@ -36,14 +36,17 @@ socket.on('new', msg =>{
 socket.on('inactive', msgs => {
   
   let count = 0;
-  msgs.forEach(msg=> {
+  msgs.forEach(msg => {
     if (msg.ses == getSes()) {
       removeMsg(msg.id)
       count++
     }
   })
   
-  if (count > 0) warnEvent(`Se eliminaron ${count} mensajes de esta sesión`);
+  if (count > 0) {
+    warnEvent(`Se eliminaron ${count} mensajes de esta sesión`);
+    observeLastMsg()
+  }
 })
 
 socket.on("move-ses", res => {
@@ -51,7 +54,9 @@ socket.on("move-ses", res => {
   
   if(res.ok){
     createManyMsg(res.msgs)
+    
   }
+  observeLastMsg()
    replaceSes(res.ses)
 })
 

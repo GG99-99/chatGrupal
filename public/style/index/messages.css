@@ -29,6 +29,7 @@
     opacity: 0;
     transform: translateX(40px);
     transition: 150ms ease;
+    cursor: pointer;
 }
 
 .show{

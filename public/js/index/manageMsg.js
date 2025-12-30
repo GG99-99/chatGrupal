@@ -1,4 +1,6 @@
 import { closeScreen, openScreen } from "../util/openScreen.js";
+import { counter } from "../util/counter.js";
+import { openSelectMode } from "../util/selectMode.js";
 
 let screenAlert = document.querySelector(".screen:has(.alert-box)")
 
@@ -85,12 +87,91 @@ export function warnEvent(txt){
 export let observer = new IntersectionObserver((entries) => {
 	entries.forEach(entry => {
 		entry.target.classList.toggle('show', entry.isIntersecting)
-		if(entry.isIntersecting) observer.unobserve(entry.target)
+		// if(entry.isIntersecting) observer.unobserve(entry.target)
 	})
 }, {
 	threshold: 0.7
 });
 
+let downArrow = document.querySelector(".down-arrow")
+downArrow.show = ()=>{
+  downArrow.style.display = "flex"
+}
+downArrow.hide = ()=>{
+  downArrow.style.display = "none"
+}
+
+let lastMsgObserver = new IntersectionObserver((entries) => {
+  let lastMsg = entries[0]
+  
+  if (!lastMsg.isIntersecting) {
+    downArrow.show()
+    
+  } else { 
+    downArrow.hide() 
+    // if(lastMsg) lastMsgObserver.unobserve(entries[0].target)
+  }
+   
+}, { threshold: 1 })
+
+
+// observe the last function
+export function observeLastMsg (){
+  lastMsgObserver.disconnect()
+  let lastMsg = document.querySelector(".msg-container > div:last-child")
+
+  if (lastMsg) {
+    lastMsgObserver.observe(lastMsg)
+  }
+  else downArrow.hide();
+  
+}
+
+
+
+
+// msg mousedown, mouseup, mouseleave
+
+
+let mousedown = false
+let timer;
+
+export let msgMouse = {
+  down: function(event){
+    mousedown = true;
+    event.preventDefault();
+    
+    let msg = event.currentTarget
+
+    timer = counter(()=>{
+      msg.classList.add("selected")
+      openSelectMode()
+      
+    }, 0.4)
+  },
+  
+  up: function(event){
+    mousedown = false
+    event.preventDefault(); 
+    if(timer) timer.stop() 
+  },
+  
+  leave: function(event){
+    event.preventDefault();
+    
+    if(mousedown){
+      timer.stop()
+      mousedown = false;
+    }
+  }
+}
+
 
 let msgs = document.querySelectorAll(".msg-box")
-for (let msg of msgs) observer.observe(msg);
+for (let msg of msgs) {
+  observer.observe(msg)
+  
+  msg.addEventListener("mousedown", msgMouse.down)
+  msg.addEventListener("mouseup", msgMouse.up)
+  msg.addEventListener("mouseleave", msgMouse.leave)
+}

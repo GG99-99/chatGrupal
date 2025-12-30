@@ -1,11 +1,14 @@
 import { closeScreen, openScreen } from "./openScreen.js";
+import { hideControls } from "./hideControls.js";
 
  let screenSelect = document.querySelector(".screen.select")
  
 export function openSelectMode(){
   openScreen(screenSelect) 
+  countSelects()
   showCount()
   showSelectBtn();
+  hideControls();
 }
 
 export function closeSelectMode(){
